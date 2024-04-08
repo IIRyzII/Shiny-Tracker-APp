@@ -1,0 +1,299 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #a09898; /* Light grey background */
+    color: #ffcc00; /* Darker text for better readability */
+    text-align: center;
+}
+
+#pokeball-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 1000;
+    width: 80px; /* Slightly smaller for a cleaner look */
+    height: 80px;
+    background-color: #ffcc00; /* Yellow */
+    border: 5px solid #333; /* Dark border for contrast */
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+#searchBar{
+    display: flex;
+    margin: 55px; /* Adjusted top margin to accommodate the Pokéball */
+    padding: 10px;
+    width: 80%; /* Max width to avoid very wide layouts on large screens */
+    max-width: 1200px; /* Maximum width */
+    background-color: #ffffff94; /* White background for content areas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 10px;   
+    position: relative ;
+    justify-content: center;
+    align-items: center;
+}
+
+#pokedex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust if needed for alignment */
+    padding: 10px;
+    gap: 20px; /* Adjust gap between items if necessary */
+    margin: 100px auto 20px;
+    padding: 10px;
+    width: 80%;
+    max-width: 1200px;
+    background-color: #ffffff89;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.pokemon {
+    flex: 1 0 calc(16.66% - 20px); /* Now explicitly for 6 items per row, adjust gap if needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Provides space between rows, adjust gap in calc() if changed */
+    border: 4px solid #ffcc00;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #000000;
+    transition: transform 0.2s;
+}
+
+.pokemon:hover {
+    transform: scale(1.05); /* Slightly enlarge Pokémon boxes on hover */
+}
+
+.pokemon img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+}
+
+.pokemon-info {
+    font-size: 14px;
+    width: 100%;
+    color: #666; /* Slightly lighter text for less contrast */
+}
+
+
+.not-shiny {
+    filter: grayscale(100%);
+}
+
+.shiny-selected {
+    position: relative;
+    overflow: hidden;
+}
+
+.shiny-selected::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 0, 0.2), transparent);
+    z-index: 1;
+    animation: shine 5s infinite;
+}
+
+@keyframes shine {
+    from {
+        left: -50%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.shiny {
+    position: relative;
+    z-index: 1;
+}
+
+.shiny::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 0, 0.0) 0%, rgba(255, 255, 224, 0.5) 100%);
+    z-index: -1;
+    animation: shinyAnimation 2s infinite;
+}
+
+@keyframes shinyAnimation {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+}
+
+#pokemonProgressContainer, #formsProgressContainer, #ShinyCount {
+    display: flex;
+    align-items: center; /* Centers the child elements horizontally in the container */
+    justify-content: center; /* Centers the child elements vertically in the container, useful if you have multiple rows of elements */
+    margin: 20px auto; /* Centers the container itself */
+    padding: 10px;
+    width: 100%;
+    max-width: 600px; /* Adjust according to your layout preference */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 80%;
+    margin: 0 auto;
+    height: 30px; /* Gives the progress bar a nice height */
+    color: #ffcc00; /* Attempt to style the color, though it might not work in all browsers */
+    background-color: #ffcc00;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f0f0f0;
+}
+
+progress::-webkit-progress-value {
+    background-color: #9000ff;
+}
+
+progress::-moz-progress-bar {
+    background-color: #ffcc00;
+}
+
+#pokemonCount, #formsCount {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+}
+
+
+#deselectAllBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ffcc00; /* Yellow */
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#recentShiniesContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#recentShinies div {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    background-color: #f4b506;
+    border-radius: 5px;
+}
+
+#recentShinies img {
+    width: 50px; /* Adjust based on your preference */
+    height: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+#toggleMenuButton {
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #ffcc00; /* Adjust the color to fit your theme */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menuContainer {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    max-height: 0; /* Start hidden */
+}
+
+#loadingIndicator {
+    transition: opacity 0.5s ease;
+    opacity: 1; /* Start fully visible */
+}
+
+.hiddenFade {
+    opacity: 0;
+    display: none !important;
+}
+
+.pokeball {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokeball-half {
+  width: 100%;
+  height: 50%;
+  background-color: red;
+  border: 5px solid black;
+}
+
+#pokeballTop {
+  border-bottom: 0;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: #ff0000;
+}
+
+#pokeballBottom {
+  border-top: 0;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: #ffffff;
+}
+
+@keyframes spinAndSplit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -250%) rotate(360deg);
+  }
+}
+
+@keyframes spinAndSplitBottom {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, 150%) rotate(360deg);
+  }
+}
