@@ -22,18 +22,15 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
 }
 
-#searchBar{
+#searchBar {
     display: flex;
-    margin: 55px; /* Adjusted top margin to accommodate the Pokéball */
+    margin: 20px auto; /* Center the search bar horizontally */
     padding: 10px;
-    width: 80%; /* Max width to avoid very wide layouts on large screens */
-    max-width: 1200px; /* Maximum width */
-    background-color: #ffffff94; /* White background for content areas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    border-radius: 10px;   
-    position: relative ;
-    justify-content: center;
-    align-items: center;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 400px; /* Set a maximum width for better readability */
+    background-color: #ffffff94;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 #pokedex {
@@ -52,12 +49,12 @@ body {
 }
 
 .pokemon {
-    flex: 1 0 calc(16.66% - 20px); /* Now explicitly for 6 items per row, adjust gap if needed */
+    flex: 0 0 calc(20% - 20px); /* Now explicitly for 6 items per row, adjust gap if needed */
     display: flex;
+    margin: 10px;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px; /* Provides space between rows, adjust gap in calc() if changed */
     border: 4px solid #ffcc00;
     border-radius: 10px;
     padding: 10px;
