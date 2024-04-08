@@ -88,8 +88,7 @@ body {
 }
 
 .shiny-selected {
-    position: relative;
-    overflow: hidden;
+    transform: none;
 }
 
 .shiny-selected::after {
