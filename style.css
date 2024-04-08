@@ -24,7 +24,7 @@ body {
 
 #searchBar{
     display: flex;
-    margin: 55px; /* Adjusted top margin to accommodate the Pokéball */
+    margin: auto;
     padding: 10px;
     width: 80%; /* Max width to avoid very wide layouts on large screens */
     max-width: 1200px; /* Maximum width */
