@@ -52,7 +52,7 @@ body {
 }
 
 .pokemon {
-    flex: 1 0 calc(16.66% - 20px); /* Now explicitly for 6 items per row, adjust gap if needed */
+    flex: 1 0 calc(33.33% - 20px); /* Now explicitly for 6 items per row, adjust gap if needed */
     display: flex;
     flex-direction: column;
     align-items: center;
